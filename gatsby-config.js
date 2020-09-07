@@ -96,7 +96,8 @@ module.exports = {
         // Gatsby. This is required.
         schemas: {
           // Your custom types mapped to schemas
-          pages: require('./src/schemas/page.json')
+          pages: require('./src/schemas/page.json'),
+          nav: require('./src/schemas/nav.json')
         },
 
         // Set a default language when fetching documents. The default value is
@@ -145,8 +146,7 @@ module.exports = {
         // stored. The filename will include the MD5 hash of your schemas after
         // the prefix.
         // This defaults to 'prismic-typepaths---${repositoryName}'.
-        typePathsFilenamePrefix:
-          "prismic-typepaths---gatsby-source-prismic-test-site",
+        
       },
     },
   ],

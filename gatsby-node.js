@@ -26,7 +26,6 @@ exports.createPages = async ({ graphql, actions }) => {
     allPrismicPages {
       edges {
         node {
-          lang
           uid
           id
         }
@@ -54,28 +53,20 @@ exports.createPages = async ({ graphql, actions }) => {
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
 
-    const lang = edge.node.lang;
-    let langSlug = ""
-
-    if(lang === "es-es") {
-      langSlug = ""
-    } else if (lang ==="en-gb") {
-      langSlug = "en/" 
-    }
 
     createPage({
       // Each page is required to have a `path` as well
       // as a template component. The `context` is
       // optional but is often necessary so the template
       // can query data specific to each page.
-      path: `/${langSlug}${edge.node.uid}`,
+      path: edge.node.uid,
       component: slash(pageTemplate),
       context: edge.node,
     })
   })
 
   // Create Page pages.
-  const challengeTemplate = path.resolve(`./src/templates/challenge.js`)
+  /* const challengeTemplate = path.resolve(`./src/templates/challenge.js`) */
   // We want to create a detailed page for each page node.
   // The path field contains the relative original WordPress link
   // and we use it for the slug to preserve url structure.

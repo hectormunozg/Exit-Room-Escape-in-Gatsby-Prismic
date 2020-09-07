@@ -1,0 +1,20 @@
+{
+  "Main": {
+    "nav_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "Link",
+              "placeholder": "Link"
+            }
+          }
+        },
+        "label": "Navigation Links"
+      }
+    }
+  }
+}
