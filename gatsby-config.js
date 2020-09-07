@@ -117,6 +117,7 @@ module.exports = {
         // This defaults to always return false.
         shouldDownloadImage: ({ node, key, value }) => {
           // Return true to download the image or false to skip.
+          return true
         },
 
         // Provide a default set of Imgix image transformations applied to
