@@ -28,29 +28,11 @@ exports.createPages = async ({ graphql, actions }) => {
         node {
           lang
           uid
-          data {
-            title {
-              html
-              raw
-              text
-            }
-            show_booking_iframe
-            featured_image {
-              fluid {
-                src
-              }
-            }
-            content {
-              html
-              raw
-              text
-            }
-          }
+          id
         }
       }
     }
   }
-  
   `)
 
   // Check for any errors
