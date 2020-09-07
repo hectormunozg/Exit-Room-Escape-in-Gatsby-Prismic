@@ -1,0 +1,74 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug",
+        "placeholder" : "Slug"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "slide" : [ {
+            "name" : "slide",
+            "display" : "slide"
+          } ]
+        },
+        "choices" : {
+          "slide" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Slider",
+            "description" : "Imagen para slider",
+            "icon" : "image",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "slide_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Imagen del Slide"
+                }
+              },
+              "slide_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Título del slide",
+                  "placeholder" : "Título"
+                }
+              },
+              "slide_description" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Descripción",
+                  "placeholder" : "Texto destacado"
+                }
+              },
+              "slider_btn_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Texto del botón",
+                  "placeholder" : "Texto del botón"
+                }
+              },
+              "slider_btn_link" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "label" : "Enlace",
+                  "placeholder" : "Enlace del botón"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
