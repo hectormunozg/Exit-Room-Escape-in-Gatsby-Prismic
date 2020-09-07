@@ -21,7 +21,7 @@ export default function HomePage() {
                       raw
                     }
                     slide_image {
-                      fixed {
+                      fluid(maxWidth: 1920) {
                         src
                       }
                     }
@@ -52,7 +52,7 @@ export default function HomePage() {
   return (
     <Layout>
       <h1>Jelou</h1>
-      <Slider />
+      <Slider props={data} />
     </Layout>
   )
 }
