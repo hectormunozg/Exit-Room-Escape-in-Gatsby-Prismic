@@ -5,7 +5,7 @@ import { RichText } from "prismic-reactjs"
 import Nav from "../components/header/nav"
 
 export const query = graphql`
-  query MyQuery($id: String) {
+  query MyPage($id: String) {
     allPrismicPages(filter: { id: { eq: $id } }) {
       edges {
         node {

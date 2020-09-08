@@ -98,7 +98,8 @@ module.exports = {
           // Your custom types mapped to schemas
           pages: require('./src/schemas/page.json'),
           nav: require('./src/schemas/nav.json'),
-          home: require('./src/schemas/home.json')
+          home: require('./src/schemas/home.json'),
+          posts: require('./src/schemas/post.json')
         },
 
         // Set a default language when fetching documents. The default value is

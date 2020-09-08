@@ -6,8 +6,6 @@ import {Link} from "gatsby"
 
 function Item(props) {
 
-  console.log(props);
-
   const title = props.item.slide_title.raw
   const description = props.item.slide_description
   const btnText = props.item.slider_btn_text.text
@@ -16,7 +14,7 @@ function Item(props) {
 
   return (
     <Paper>
-      <img src={image}/>
+      <img src={image} alt={title} />
       <RichText render={title} />
       <p>{description}</p>
       <Link to={`/${link}`} >{btnText}</Link>

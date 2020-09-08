@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
 const path = require(`path`)
 const { slash } = require(`gatsby-core-utils`)
 
@@ -23,6 +22,14 @@ exports.createPages = async ({ graphql, actions }) => {
   // from the fetched data that you can run queries against.
   const result = await graphql(`
   {
+    allPrismicPosts {
+      edges {
+        node {
+          uid
+          id
+        }
+      }
+    }
     allPrismicPages {
       edges {
         node {
@@ -31,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  }
+  }  
   `)
 
   // Check for any errors
@@ -40,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
- /*  const { allWordpressPage, allWordpressWpRetos } = result.data */
+  const { allPrismicPages, allPrismicPosts } = result.data
 
   // Create Page pages.
   const pageTemplate = path.resolve(`./src/templates/page.js`)
@@ -48,12 +55,10 @@ exports.createPages = async ({ graphql, actions }) => {
   // The path field contains the relative original WordPress link
   // and we use it for the slug to preserve url structure.
   // The Page ID is prefixed with 'PAGE_'
-  result.data.allPrismicPages.edges.forEach(edge => {
+  allPrismicPages.edges.forEach(edge => {
     // Gatsby uses Redux to manage its internal state.
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
-
-
     createPage({
       // Each page is required to have a `path` as well
       // as a template component. The `context` is
@@ -66,16 +71,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create Page pages.
-  /* const challengeTemplate = path.resolve(`./src/templates/challenge.js`) */
+  const postTemplate = path.resolve(`./src/templates/post.js`)
   // We want to create a detailed page for each page node.
   // The path field contains the relative original WordPress link
-  // and we use it for the slug to preserve url structure.
+  // and we use it for the uid to preserve url structure.
   // The Page ID is prefixed with 'PAGE_'
-
-
-
-
-/*   allWordpressWpRetos.edges.forEach(edge => {
+  allPrismicPosts.edges.forEach(edge => {
     // Gatsby uses Redux to manage its internal state.
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
@@ -84,9 +85,9 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a template component. The `context` is
       // optional but is often necessary so the template
       // can query data specific to each page.
-      path: edge.node.slug,
-      component: slash(challengeTemplate),
+      path: edge.node.uid,
+      component: slash(postTemplate),
       context: edge.node,
     })
-  }) */
+  })
 }

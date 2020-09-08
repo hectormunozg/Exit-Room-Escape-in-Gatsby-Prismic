@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import Slider from "../components/homepage/slider"
@@ -51,7 +51,6 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <h1>Jelou</h1>
       <Slider props={data} />
     </Layout>
   )
