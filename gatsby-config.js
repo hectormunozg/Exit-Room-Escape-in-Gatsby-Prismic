@@ -99,7 +99,8 @@ module.exports = {
           pages: require('./src/schemas/page.json'),
           nav: require('./src/schemas/nav.json'),
           home: require('./src/schemas/home.json'),
-          posts: require('./src/schemas/post.json')
+          posts: require('./src/schemas/post.json'),
+          games: require('./src/schemas/game.json')
         },
 
         // Set a default language when fetching documents. The default value is

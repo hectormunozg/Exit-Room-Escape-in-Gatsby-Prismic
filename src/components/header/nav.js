@@ -32,8 +32,6 @@ export default function Nav() {
 
   const items = data.allPrismicNav.edges[0].node.data.nav_links
 
-  console.log(items)
-
   return (
     <>
       <nav>

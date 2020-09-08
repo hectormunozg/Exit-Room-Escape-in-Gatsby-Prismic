@@ -1,0 +1,79 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "slug",
+        "placeholder" : "slug"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Título",
+        "placeholder" : "Título"
+      }
+    },
+    "featured_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Imagen destacada"
+      }
+    },
+    "short_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
+        "allowTargetBlank" : true,
+        "label" : "Descripción corta"
+      }
+    },
+    "description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Descripción completa"
+      }
+    },
+    "players" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "allowTargetBlank" : true,
+        "label" : "Número de jugadores",
+        "placeholder" : "Número de jugadores"
+      }
+    },
+    "duration" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "allowTargetBlank" : true,
+        "label" : "Duración",
+        "placeholder" : "Duración"
+      }
+    },
+    "show_bookings" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Si",
+        "default_value" : true,
+        "label" : "Mostrar reservas"
+      }
+    },
+    "booking_embed" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "embed",
+        "allowTargetBlank" : true,
+        "label" : "Embed de reservas",
+        "placeholder" : "Embed de reservas"
+      }
+    }
+  }
+}
