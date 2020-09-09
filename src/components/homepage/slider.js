@@ -6,10 +6,10 @@ import {Link} from "gatsby"
 import styled from '@emotion/styled';
 
 const HomeCarousel = styled(Carousel)`
-
+  height: 600px;
 `
 const CarouselItem = styled(Paper)`
-
+  height: 600px;
 
 `
 
@@ -24,8 +24,7 @@ function Item(props) {
   const image = props.item.slide_image.fluid.src
 
   return (
-    <CarouselItem>
-      {/* <img src={image} alt={title} /> */}
+    <CarouselItem style={{backgroundImage:`url(${image})`}}>
       <RichText render={title} />
       <p>{description}</p>
       <Link to={`/${link}`} >{btnText}</Link>
