@@ -40,8 +40,8 @@ const Post = props => {
     <>
       <Nav />
       <img src={image} alt={postTitle} />
-      <RichText render={postTitle} />
-      <RichText render={content} />
+      <RichText key="1" render={postTitle} />
+      <RichText key="2" render={content} />
     </>
   )
 }

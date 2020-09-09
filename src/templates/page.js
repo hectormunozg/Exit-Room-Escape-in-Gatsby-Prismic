@@ -43,8 +43,8 @@ const Page = props => {
   return (
     <>
       <Nav />
-      <RichText render={pageTitle} />
-      <RichText render={content} />
+      <RichText key="1" render={pageTitle} />
+      <RichText key="2" render={content} />
     </>
   )
 }

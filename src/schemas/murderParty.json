@@ -1,0 +1,63 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "slug",
+        "placeholder" : "slug"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Título",
+        "placeholder" : "Título"
+      }
+    },
+    "date" : {
+      "type" : "Timestamp",
+      "config" : {
+        "label" : "Fecha",
+        "placeholder" : "Fecha"
+      }
+    },
+    "address" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "allowTargetBlank" : true,
+        "label" : "Dirección"
+      }
+    },
+    "google_maps" : {
+      "type" : "GeoPoint",
+      "config" : {
+        "label" : "Google Maps"
+      }
+    },
+    "players" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "player_name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "Nombre del jugador"
+            }
+          },
+          "character" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "Andrea Salsete", "Comandante Venancio Batalla", "Primer Oficial Anacleto Galán", "Paris Martínez", "Superintendente Santana", "Fefi Möet", "Lady Elpidia Vaganzzia", "Capitán Pedro Caboso", "René Claquet", "Duquesa Brígida de la Felpa", "Denis Echante", "Cameron Delavie", "Blanca Enrale", "Yael Palomo", "Noa Teloborro", "Robin Auyanet" ],
+              "label" : "Personaje",
+              "placeholder" : "Personaje"
+            }
+          }
+        },
+        "label" : "Personajes"
+      }
+    }
+  }
+}

@@ -54,8 +54,8 @@ const Game = props => {
     <>
       <Nav />
       <img src={image} alt={gameTitle} />
-      <RichText render={gameTitle} />
-      <RichText render={content} />
+      <RichText key="1" render={gameTitle} />
+      <RichText key="2" render={content} />
     </>
   )
 }

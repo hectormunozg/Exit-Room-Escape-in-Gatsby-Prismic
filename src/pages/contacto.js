@@ -47,8 +47,8 @@ export default function Contact() {
 
   return (
     <Layout>
-      <RichText render={title} />
-      <RichText render={content} />
+      <RichText key="1" render={title} />
+      <RichText key="2" render={content} />
     </Layout>
   )
 }

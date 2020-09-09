@@ -21,32 +21,40 @@ exports.createPages = async ({ graphql, actions }) => {
   // it like the site has a built-in database constructed
   // from the fetched data that you can run queries against.
   const result = await graphql(`
-  {
-    allPrismicPosts {
-      edges {
-        node {
-          uid
-          id
+    {
+      allPrismicPosts {
+        edges {
+          node {
+            uid
+            id
+          }
+        }
+      }
+      allPrismicPages {
+        edges {
+          node {
+            uid
+            id
+          }
+        }
+      }
+      allPrismicGames {
+        edges {
+          node {
+            uid
+            id
+          }
+        }
+      }
+      allPrismicMurderParties {
+        edges {
+          node {
+            uid
+            id
+          }
         }
       }
     }
-    allPrismicPages {
-      edges {
-        node {
-          uid
-          id
-        }
-      }
-    }
-    allPrismicGames {
-      edges {
-        node {
-          uid
-          id
-        }
-      }
-    }
-  }  
   `)
 
   // Check for any errors
@@ -55,7 +63,12 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const { allPrismicPages, allPrismicPosts, allPrismicGames } = result.data
+  const {
+    allPrismicPages,
+    allPrismicPosts,
+    allPrismicGames,
+    allPrismicMurderParties,
+  } = result.data
 
   // Create Page pages.
   const pageTemplate = path.resolve(`./src/templates/page.js`)
@@ -116,6 +129,27 @@ exports.createPages = async ({ graphql, actions }) => {
       // can query data specific to each page.
       path: `/juego/${edge.node.uid}`,
       component: slash(gameTemplate),
+      context: edge.node,
+    })
+  })
+
+  // Create games pages.
+  const murderPartyTemplate = path.resolve(`./src/templates/murderParty.js`)
+  // We want to create a detailed page for each page node.
+  // The path field contains the relative original WordPress link
+  // and we use it for the uid to preserve url structure.
+  // The Page ID is prefixed with 'PAGE_'
+  allPrismicMurderParties.edges.forEach(edge => {
+    // Gatsby uses Redux to manage its internal state.
+    // Plugins and sites can use functions like "createPage"
+    // to interact with Gatsby.
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `/mp/${edge.node.id}`,
+      component: slash(murderPartyTemplate),
       context: edge.node,
     })
   })

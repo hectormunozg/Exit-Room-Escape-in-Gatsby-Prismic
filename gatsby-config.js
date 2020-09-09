@@ -102,7 +102,8 @@ module.exports = {
           posts: require('./src/schemas/post.json'),
           games: require('./src/schemas/game.json'),
           faqs: require('./src/schemas/faqs.json'),
-          contact: require('./src/schemas/contactPage.json')
+          contact: require('./src/schemas/contactPage.json'),
+          murder_parties: require('./src/schemas/murderParty.json')
         },
 
         // Set a default language when fetching documents. The default value is
