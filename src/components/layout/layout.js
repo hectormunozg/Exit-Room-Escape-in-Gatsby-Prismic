@@ -6,13 +6,22 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 /* import { useStaticQuery, graphql } from "gatsby" */
+import { theme } from "./theme"
+import { createGlobalStyle } from "styled-components"
+import { ThemeProvider } from "@material-ui/core/styles"
 
 import Header from "../header/header"
 
+const GlobalStyle = createGlobalStyle`
+  body{
+    background-color: #000000;
+  }
+
+`
+
 const Layout = ({ children }) => {
-/*   const data = useStaticQuery(graphql`
+  /*   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -24,14 +33,13 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
         <main>{children}</main>
+      </ThemeProvider>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

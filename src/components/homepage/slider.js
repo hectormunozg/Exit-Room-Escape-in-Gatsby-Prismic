@@ -17,9 +17,6 @@ const CarouselItem = styled(Paper)`
 
   h1 {
     font-size: 5rem;
-    color: red;
-
-    z-index: 1000;
   }
 `
 
@@ -31,7 +28,12 @@ const Overlay = styled.div`
   height: 100%;
   z-index: 999;
   position: absolute;
+`
 
+const FeaturedWrap = styled.div`
+  z-index: 1000;
+  color: white;
+  text-align:center;
 `
 
 function Item(props) {
@@ -51,9 +53,11 @@ function Item(props) {
       }}
     >
       <Overlay />
-      <RichText render={title} />
-      <p>{description}</p>
-      <Link to={`/${link}`}>{btnText}</Link>
+      <FeaturedWrap>
+        <RichText render={title} />
+        <p>{description}</p>
+        <Link to={`/${link}`}>{btnText}</Link>
+      </FeaturedWrap>
     </CarouselItem>
   )
 }
