@@ -4,42 +4,46 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import { RichText } from "prismic-reactjs"
 
-export default function Faqs() {
+export default function Contact() {
   const data = useStaticQuery(graphql`
   {
-    allPrismicFaqs {
+    allPrismicContact {
       edges {
         node {
-          uid
-          id
           data {
-            title {
+            address {
               raw
             }
             content {
               raw
             }
-            faqs {
-              answer {
-                raw
-              }
-              question {
-                raw
-              }
+            email {
+              raw
+            }
+            location {
+              latitude
+              longitude
+            }
+            phone {
+              raw
+            }
+            title {
+              raw
             }
           }
+          uid
+          id
         }
       }
     }
   }
-  
   `)
 
 
  console.log(data)
 
- const title = data.allPrismicFaqs.edges[0].node.data.title.raw
- const content = data.allPrismicFaqs.edges[0].node.data.content.raw
+ const title = data.allPrismicContact.edges[0].node.data.title.raw
+ const content = data.allPrismicContact.edges[0].node.data.content.raw
 
   return (
     <Layout>
