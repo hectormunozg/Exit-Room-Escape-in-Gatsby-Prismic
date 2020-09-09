@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
-import Slider from "../components/homepage/slider"
+import Slider from "../components/homepage/newSlider"
 
 export default function HomePage() {
   const data = useStaticQuery(graphql`

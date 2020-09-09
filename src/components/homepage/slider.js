@@ -3,6 +3,17 @@ import Carousel from "react-material-ui-carousel"
 import { Paper } from "@material-ui/core"
 import { RichText } from "prismic-reactjs"
 import {Link} from "gatsby"
+import styled from '@emotion/styled';
+
+const HomeCarousel = styled(Carousel)`
+
+`
+const CarouselItem = styled(Paper)`
+
+
+`
+
+
 
 function Item(props) {
 
@@ -13,12 +24,12 @@ function Item(props) {
   const image = props.item.slide_image.fluid.src
 
   return (
-    <Paper>
-      <img src={image} alt={title} />
+    <CarouselItem>
+      {/* <img src={image} alt={title} /> */}
       <RichText render={title} />
       <p>{description}</p>
       <Link to={`/${link}`} >{btnText}</Link>
-    </Paper>
+    </CarouselItem>
   )
 }
 
@@ -27,11 +38,11 @@ const Slider = (props) => {
   var slides = props.props.allPrismicHome.edges[0].node.data.body[0].items
 
   return ( 
-    <Carousel>
+    <HomeCarousel>
       {slides.map((slide, i) => (
         <Item key={i} item={slide} />
       ))}
-    </Carousel>
+    </HomeCarousel>
    );
 }
  
