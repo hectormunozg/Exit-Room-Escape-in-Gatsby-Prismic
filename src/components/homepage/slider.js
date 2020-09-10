@@ -2,8 +2,8 @@ import React from "react"
 import Carousel from "react-material-ui-carousel"
 import { Paper } from "@material-ui/core"
 import { RichText } from "prismic-reactjs"
-import { Link } from "gatsby"
 import styled from "@emotion/styled"
+import Button from "@material-ui/core/Button"
 
 const HomeCarousel = styled(Carousel)`
   height: 600px;
@@ -33,7 +33,7 @@ const Overlay = styled.div`
 const FeaturedWrap = styled.div`
   z-index: 1000;
   color: white;
-  text-align:center;
+  text-align: center;
 `
 
 function Item(props) {
@@ -56,7 +56,14 @@ function Item(props) {
       <FeaturedWrap>
         <RichText render={title} />
         <p>{description}</p>
-        <Link to={`/${link}`}>{btnText}</Link>
+        <Button
+          size="large"
+          variant="contained"
+          color="secondary"
+          href={`/${link}`}
+        >
+          {btnText}
+        </Button>
       </FeaturedWrap>
     </CarouselItem>
   )

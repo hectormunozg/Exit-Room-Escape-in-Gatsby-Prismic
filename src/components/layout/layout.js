@@ -12,6 +12,8 @@ import { createGlobalStyle } from "styled-components"
 import { ThemeProvider } from "@material-ui/core/styles"
 
 import Header from "../header/header"
+import Footer from '../layout/Footer';
+
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -36,7 +38,10 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <main>{children}</main>
+        <main>
+          {children}
+        </main>
+        <Footer />
       </ThemeProvider>
     </>
   )
